@@ -3,6 +3,10 @@
 ########################################
 
 suse-security:
+  suse-security:
+  image:
+    tag: 5.4.0
+    
   controller:
     replicas: 1
 
