@@ -12,3 +12,8 @@ targetCustomizations:
       matchExpressions:
         - key: provisioning.cattle.io/cluster-name
           operator: Exists
+
+# What this does: 
+# Deploys NeuVector to all downstream clusters
+# Uses your Helm chart exactly as-is
+# Sets suse-security namespace automatically
