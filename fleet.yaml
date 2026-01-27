@@ -1,0 +1,14 @@
+defaultNamespace: suse-security
+
+helm:
+  releaseName: suse-security
+  chart: ./suse-security
+  valuesFiles:
+    - values.yaml
+
+targetCustomizations:
+  - name: all-clusters
+    clusterSelector:
+      matchExpressions:
+        - key: provisioning.cattle.io/cluster-name
+          operator: Exists
