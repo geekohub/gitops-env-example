@@ -1,6 +1,52 @@
-controller:
-  replicas: 3
+########################################
+# SUSE Security (NeuVector) – DEV
+########################################
 
-ingress:
-  enabled: true
-  host: security.prod.example.com
+suse-security:
+  controller:
+    replicas: 1
+
+  enforcer:
+    resources:
+      limits:
+        cpu: "250m"
+        memory: "256Mi"
+      requests:
+        cpu: "100m"
+        memory: "128Mi"
+
+  scanner:
+    replicas: 1
+
+  admissionControl:
+    enabled: true
+    mode: monitor   # DO NOT enforce in dev
+
+  service:
+    type: ClusterIP
+
+  ingress:
+    enabled: false
+
+
+########################################
+# SUSE Observability – DEV
+########################################
+
+# suse-observability:
+#  global:
+#    clusterName: dev-cluster
+
+#  stackstate:
+#    components:
+##      receiver:
+ #       replicas: 1
+#      api:
+#        replicas: 1
+
+#  retention:
+#    metricsDays: 3
+#    eventsDays: 3
+
+#  ingress:
+#    enabled: false
