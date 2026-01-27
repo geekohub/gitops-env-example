@@ -60,29 +60,30 @@ This golden path supports different behavior per environment without forking cha
 
 ### Dev Clusters
 
-SUSE Security: Monitor mode
+* SUSE Security: Monitor mode
 
-Lower resource consumption
+* Lower resource consumption
 
-Short observability retention
+* Short observability retention
 
 No external ingress
 
 ### Prod Clusters
 
-SUSE Security: Enforce mode
+* SUSE Security: Enforce mode
 
-HA controllers and receivers
+* HA controllers and receivers
 
-Longer data retention
+* Longer data retention
 
-External ingress enabled
+* External ingress enabled
 
-Capability	Dev	Prod
-Security mode	Monitor	Enforce
-Controllers	1	3 (HA)
-Observability retention	3 days	30 days
-GitOps enforcement	✅	✅
+| Capability|	Dev |	Prod |
+|---|---|---|
+|Security mode	| Monitor	 | Enforce
+|Controllers	|1	|3 (HA)
+|Observability retention	| 3 days	| 30 days
+|GitOps enforcement |	✅ |	✅ |
 
 ---
 
