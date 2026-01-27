@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: neuvector-enforcer
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: neuvector-enforcer
+  template:
+    metadata:
+      labels:
+        app: neuvector-enforcer
+    spec:
+      hostPID: true
+      containers:
+        - name: enforcer
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}/enforcer:{{ .Values.image.tag }}"
+          securityContext:
+            privileged: true
+          resources:
+{{ toYaml .Values.enforcer.resources | indent 12 }}
