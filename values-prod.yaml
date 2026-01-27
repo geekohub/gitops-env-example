@@ -1,0 +1,6 @@
+controller:
+  replicas: 3
+
+ingress:
+  enabled: true
+  host: security.prod.example.com
