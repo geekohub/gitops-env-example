@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: neuvector-controller
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: {{ .Values.controller.replicas }}
+  selector:
+    matchLabels:
+      app: neuvector-controller
+  template:
+    metadata:
+      labels:
+        app: neuvector-controller
+    spec:
+      containers:
+        - name: controller
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}/controller:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: 8443
+          resources:
+{{ toYaml .Values.controller.resources | indent 12 }}
