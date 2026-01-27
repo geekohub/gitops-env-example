@@ -7,11 +7,22 @@ helm:
     - values.yaml
 
 targetCustomizations:
-  - name: all-clusters
+  - name: dev
     clusterSelector:
-      matchExpressions:
-        - key: provisioning.cattle.io/cluster-name
-          operator: Exists
+      matchLabels:
+        env: dev
+    helm:
+      valuesFiles:
+        - values-dev.yaml
+
+  - name: prod
+    clusterSelector:
+      matchLabels:
+        env: prod
+    helm:
+      valuesFiles:
+        - values-prod.yaml
+
 
 # What this does: 
 # Deploys NeuVector to all downstream clusters
