@@ -1,6 +1,85 @@
-controller:
-  replicas: 3
+########################################
+# SUSE Security (NeuVector) – PROD
+########################################
 
-ingress:
-  enabled: true
-  host: security.prod.example.com
+suse-security:
+  controller:
+    replicas: 3
+    resources:
+      requests:
+        cpu: "500m"
+        memory: "1Gi"
+      limits:
+        cpu: "1"
+        memory: "2Gi"
+
+  enforcer:
+    resources:
+      requests:
+        cpu: "300m"
+        memory: "512Mi"
+      limits:
+        cpu: "1"
+        memory: "1Gi"
+
+  scanner:
+    replicas: 2
+
+  admissionControl:
+    enabled: true
+    mode: enforce     # 🚨 Hard enforcement in prod
+
+  service:
+    type: ClusterIP
+
+  ingress:
+    enabled: true
+    className: nginx
+    host: security.prod.example.com
+
+  audit:
+    enabled: true
+    level: high
+
+
+########################################
+# SUSE Observability – PROD
+########################################
+
+# suse-observability:
+#  global:
+#    clusterName: prod-cluster
+
+#  stackstate:
+#    components:
+#      receiver:
+#        replicas: 3
+#        resources:
+#          requests:
+#            cpu: "500m"
+#            memory: "1Gi"
+#          limits:
+#            cpu: "1"
+#            memory: "2Gi"
+
+#      api:
+#        replicas: 2
+#        resources:
+#          requests:
+#            cpu: "500m"
+#            memory: "1Gi"
+#          limits:
+#            cpu: "1"
+#            memory: "2Gi"
+
+#  retention:
+#    metricsDays: 30
+#    eventsDays: 30
+
+#  ingress:
+#    enabled: true
+#    className: nginx
+#    host: observability.prod.example.com
+
+#  rbac:
+#    create: true
