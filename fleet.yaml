@@ -10,7 +10,7 @@ targetCustomizations:
   - name: dev
     clusterSelector:
       matchLabels:
-        env: dev
+        env: dev-nv
     helm:
       valuesFiles:
         - values-dev.yaml
