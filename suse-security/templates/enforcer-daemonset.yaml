@@ -15,7 +15,8 @@ spec:
       hostPID: true
       containers:
         - name: enforcer
-          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}/enforcer:{{ .Values.image.tag }}"
+          image: neuvector/enforcer:5.3.0
+          #image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}/enforcer:{{ .Values.image.tag }}"
           securityContext:
             privileged: true
           resources: {{ toYaml .Values.enforcer.resources | indent 12 }}
