@@ -3,7 +3,7 @@ namespace: suse-security
 image:
   repository: neuvector
   #repository: registry.suse.com/neuvector
-  tag: "5.3.0"
+  tag: "latest"
 
 controller:
   replicas: 3
