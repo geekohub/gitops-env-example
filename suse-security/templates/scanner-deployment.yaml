@@ -15,4 +15,6 @@ spec:
     spec:
       containers:
         - name: scanner
-          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}/scanner:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.repository }}/scanner:{{ .Values.image.tag }}"
+          #image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}/scanner:{{ .Values.image.tag }}"
+
