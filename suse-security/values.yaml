@@ -1,9 +1,9 @@
 namespace: suse-security
 
 image:
-  registry: registry.suse.com
+  registry: registry.suse.com/neuvector
   #registry: registry.suse.com
-  repository: neuvector
+  #repository: neuvector
   tag: "5.3.0"
 
 controller:
