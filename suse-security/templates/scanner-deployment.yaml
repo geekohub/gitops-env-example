@@ -15,5 +15,4 @@ spec:
     spec:
       containers:
         - name: scanner
-          image: "neuvector/scanner:latest"
-          #image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}/scanner:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}/scanner:{{ .Values.image.tag }}"
