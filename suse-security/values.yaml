@@ -39,3 +39,7 @@ ingress:
 
 rbac:
   create: true
+  
+global:
+  imagePullSecrets:
+    - suse-registry-secret
