@@ -5,7 +5,7 @@
 suse-security:
   suse-security:
   image:
-    tag: 5.4.0
+    tag: "latest'
     
   controller:
     replicas: 1
