@@ -1,1 +1,16 @@
+defaultNamespace: simple-web-app
 
+helm:
+  releaseName: simple-web-app
+  chart: ./simpe-web-app
+  valuesFiles:
+    - values.yaml
+
+targetCustomizations:
+  - name: dev
+    clusterSelector:
+      matchLabels:
+        env: dev
+    helm:
+      valuesFiles:
+        - values-dev.yaml
