@@ -20,5 +20,4 @@ spec:
           #image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}/controller:{{ .Values.image.tag }}"
           ports:
             - containerPort: 8443
-          image: "{{ .Values.image.repository }}/controller:{{ .Values.image.tag }}"
-
+          resources: {{ toYaml .Values.controller.resources | nindent 12 }}
