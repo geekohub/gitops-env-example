@@ -1,7 +1,8 @@
 namespace: suse-security
 
 image:
-  repository: registry.suse.com/neuvector
+  repository: neuvector/neuvector
+  #repository: registry.suse.com/neuvector
   tag: "5.3.0"
 
 controller:
@@ -37,7 +38,9 @@ ingress:
 
 rbac:
   create: true
-  
+
 global:
-  imagePullSecrets:
-    - name: suse-registry-secret
+  imagePullSecrets: []  
+#global:
+  #imagePullSecrets:
+    #- name: suse-registry-secret
